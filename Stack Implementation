@@ -1,0 +1,76 @@
+//This program was done using C
+
+#include<stdio.h>
+int s[5], top=-1;
+void push(int value);
+void pop();
+void display();
+int main() 
+{
+	while(1){
+	
+	    int choice,value;
+	    printf("Enter your choice\n");
+	    printf("1.push\n");
+	    printf("2.pop\n");
+	    printf("3.display\n");
+	    printf("Enter your choice");
+	    scanf("%d",&choice);
+	    switch(choice)
+		{
+	        case 1:
+	            printf("enter the value");
+	            scanf("%d",&value);    
+	            push(value);
+	            break;
+	        case 2:
+	            pop();
+	            break;
+	        case 3:
+	            display();
+	            break;
+	        default:
+	            printf("Wrong choice");
+	    }
+    }
+    return 0;
+}
+
+void push(int value)
+{
+    if (top==4)
+    {
+        printf("Stack is Full");
+    }
+    else
+    {
+        top+=1;
+        s[top]=value;
+        printf("pushed item is %d\n ",s[top]);
+    }
+}
+
+
+void pop()
+{
+    if (top==-1)
+    {
+        printf("Stack is Empty");
+    }
+    else{
+        printf("%d",s[top]);
+        top=top-1;
+    }
+}
+void display()
+{
+    int i;
+    if (top==-1)
+    {
+        printf("stack is empty");
+    }
+    else{
+        for(i=top;i>=0;i--)
+        	printf("%d",s[i]);
+    }
+}
